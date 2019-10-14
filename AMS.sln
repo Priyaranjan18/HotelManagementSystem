@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS", "AMS\AMS.csproj", "{CA9D5A7D-BF6A-4C16-A527-B2FD8F7E0D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AMS.Entities", "AMS.Entities\AMS.Entities.csproj", "{5C4DD5AD-08B9-4FAF-A400-6B768204A258}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA9D5A7D-BF6A-4C16-A527-B2FD8F7E0D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9D5A7D-BF6A-4C16-A527-B2FD8F7E0D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9D5A7D-BF6A-4C16-A527-B2FD8F7E0D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9D5A7D-BF6A-4C16-A527-B2FD8F7E0D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4DD5AD-08B9-4FAF-A400-6B768204A258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4DD5AD-08B9-4FAF-A400-6B768204A258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4DD5AD-08B9-4FAF-A400-6B768204A258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4DD5AD-08B9-4FAF-A400-6B768204A258}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7812E4C8-F5B3-4C3A-8A60-EC6CA429235A}
+	EndGlobalSection
+EndGlobal

@@ -24,7 +24,17 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li><a href="@Url.Action("index","DashBoard")">DashBoard</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("index","DashBoard")">DashBoard</a></li>
+
+                    }
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

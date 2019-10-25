@@ -1,0 +1,51 @@
+﻿
+
+
+
+<div class="row">
+    <div class="col col-lg-12">
+        <h2>Accomodation types</h2>
+        <hr />
+    </div>
+
+</div>
+
+
+<div class="row mb-3">
+    <div class="col col-lg-12">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Here">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Search</button>
+                <button class="btn btn-outline-secondary" type="button">Reset</button>
+
+                <button  id="createbutton"class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#ActionModal">Create</button>
+            </div>
+        </div>
+    </div>
+
+    @{Html.RenderAction("Listing");}
+
+
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ActionModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+       
+    </div>
+</div>
+<script>
+    $("#createbutton").click(function () {
+        $.ajax({
+            url:'@Url.Action("Action","AccomodationTypes")',
+            
+        }).done(function (response) {
+            $("#ActionModal .modal-dialog").html(response);
+
+       
+
+        });
+    });
+</script>

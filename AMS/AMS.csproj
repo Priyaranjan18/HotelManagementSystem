@@ -167,6 +167,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\DashBoard\Controllers\AccomodationTypesController.cs" />
+    <Compile Include="Areas\DashBoard\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\DashBoard\DashBoardAreaRegistration.cs" />
+    <Compile Include="Areas\DashBoard\Models\ViewModels\AccomodationTypeModels.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -180,6 +184,21 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Content\css\simple-sidebar.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Content\vendor\jquery\jquery.js" />
+    <Content Include="Areas\Content\vendor\jquery\jquery.min.js" />
+    <Content Include="Areas\Content\vendor\jquery\jquery.slim.js" />
+    <Content Include="Areas\Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -190,6 +209,25 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\DashBoard\Views\web.config" />
+    <Content Include="Areas\DashBoard\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Areas\Content\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Areas\Content\vendor\jquery\jquery.min.map" />
+    <Content Include="Areas\Content\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Areas\DashBoard\Views\AccomodationTypes\Index.cshtml" />
+    <Content Include="Areas\DashBoard\Views\AccomodationTypes\_Listing.cshtml" />
+    <Content Include="Areas\DashBoard\Views\AccomodationTypes\_Action.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -251,6 +289,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AMS.Data\AMS.Data.csproj">
+      <Project>{05e5c2f0-295c-473b-bf55-64024d82d0c5}</Project>
+      <Name>AMS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AMS.Entities\AMS.Entities.csproj">
+      <Project>{5C4DD5AD-08B9-4FAF-A400-6B768204A258}</Project>
+      <Name>AMS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ams.Services\Ams.Services.csproj">
+      <Project>{B9A6BFBC-69E2-4D58-B884-7DD64F68EA7D}</Project>
+      <Name>Ams.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

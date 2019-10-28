@@ -1,4 +1,4 @@
-﻿
+﻿@model AMS.Areas.DashBoard.Models.ViewModels.AccomodationTypeModels
 
 
 
@@ -13,21 +13,27 @@
 
 <div class="row mb-3">
     <div class="col col-lg-12">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Here">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Search</button>
-                <button class="btn btn-outline-secondary" type="button">Reset</button>
+        <form>
+            <div class="input-group">
 
-                <button  id="createbutton"class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#ActionModal">Create</button>
+
+                <input type="text" name="searchTerm" class="form-control" placeholder="Search Here"  value="@Model.SearchTerm" required>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search m-2"></i>Search</button>
+                    <a href="@Url.Action("index","AccomodationTypes")"" class="btn btn-outline-secondary" ><i class="fas fa-ban mr-2"></i>Reset</a>
+
+                    <button data-href="@Url.Action("Action","AccomodationTypes")" class=" data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#ActionModal"><i class="fas fa-plus mr-2"></i>Create</button>
+                </div>
+
+
             </div>
-        </div>
+        </form>
     </div>
 
-    @{Html.RenderAction("Listing");}
+    @{Html.RenderPartial("_Listing",Model);}
 
 
-
+     
 </div>
 
 <!-- Modal -->
@@ -37,9 +43,9 @@
     </div>
 </div>
 <script>
-    $("#createbutton").click(function () {
+    $(".data-btn").click(function () {
         $.ajax({
-            url:'@Url.Action("Action","AccomodationTypes")',
+            url: $(this).attr("data-href"),
             
         }).done(function (response) {
             $("#ActionModal .modal-dialog").html(response);

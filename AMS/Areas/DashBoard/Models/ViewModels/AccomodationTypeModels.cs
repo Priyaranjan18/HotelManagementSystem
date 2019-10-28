@@ -9,6 +9,7 @@ namespace AMS.Areas.DashBoard.Models.ViewModels
     public class AccomodationTypeModels
     {
         public IEnumerable<AccomodationType> accomodationTypes { get; set; }
+        public string SearchTerm { get; set; }
     }
     public class AccomodationTypeActionModels
     {

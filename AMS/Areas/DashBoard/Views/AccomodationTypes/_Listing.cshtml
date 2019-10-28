@@ -17,8 +17,8 @@
                  <td>@item.Name</td>
                     <td>@item.Description</td>
                     <td>
-                        <button type="button" class="btn btn-success">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button   data-href="@Url.Action("Action","AccomodationTypes",new { id=item.ID})" type="button" data-toggle="modal" data-target="#ActionModal" class="data-btn btn btn-success"> <i class="fas fa-pencil-alt mr-1"></i>Edit</button>
+                        <button   data-href="@Url.Action("Delete","AccomodationTypes",new { id=item.ID})"type="button" data-toggle="modal" data-target="#ActionModal" class=" data-btn btn-danger"><i class="fas fa-trash-alt mr-1"></i>Delete</button>
                     </td>
                 </tr>
             }

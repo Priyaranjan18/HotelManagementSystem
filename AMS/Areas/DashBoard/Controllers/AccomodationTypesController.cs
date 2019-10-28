@@ -12,23 +12,33 @@ namespace AMS.Areas.DashBoard.Controllers
 {
     public class AccomodationTypesController : Controller
     {
+        #region
         AccomodationTypesService typesService = new AccomodationTypesService();
 
         // GET: DashBoard/AccomodationTypes
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Listing()
+        public ActionResult Index(string searchTerm)
         {
             AccomodationTypeModels model = new AccomodationTypeModels();
-            model.accomodationTypes = typesService.GetAllAccomodationType();
-            return PartialView("_Listing", model);
+            model.SearchTerm = searchTerm;
+            model.accomodationTypes = typesService.SearchAccomodationType(searchTerm);
+            return View(model);
         }
+      
         [HttpGet]
-        public ActionResult Action()
+        public ActionResult Action(int? ID)
         {
             AccomodationTypeActionModels accomodationTypeActionModels = new AccomodationTypeActionModels();
+            if (ID.HasValue)
+            {
+                var accomodationtype = typesService.GetAllAccomodationTypeById(ID.Value);
+                accomodationTypeActionModels.ID = accomodationtype.ID;
+                accomodationTypeActionModels.Name = accomodationtype.Name;
+                accomodationTypeActionModels.Description = accomodationtype.Description;
+            }
+            else
+            {
+
+            }
 
             return PartialView("_Action", accomodationTypeActionModels);
         }
@@ -36,22 +46,66 @@ namespace AMS.Areas.DashBoard.Controllers
         public JsonResult Action(AccomodationTypeActionModels model)
         {
             JsonResult json = new JsonResult();
-            AccomodationType accomodationType = new AccomodationType();
-            accomodationType.Name = model.Name;
-            accomodationType.Description = model.Description;
-            var res = typesService.SaveAccomodationType(accomodationType);
+            var result = false;
+            if (model.ID > 0)
+            {
+                var accomodationtype = typesService.GetAllAccomodationTypeById(model.ID);
+                accomodationtype.Name = model.Name;
+                accomodationtype.Description = model.Description;
+                 result = typesService.UpdateAccomodationType(accomodationtype);
+            }
 
-            if (res)
+            else
+            {
+                AccomodationType accomodation = new AccomodationType();
+                accomodation.Name = model.Name;
+                accomodation.Description = model.Description;
+                 result = typesService.SaveAccomodationType(accomodation);
+
+            }
+
+            if (result)
             {
                 json.Data = new { success = true };
             }
             else
             {
-                json.Data = new { success = false, message = "unable to add Accomodation type" };
+                json.Data = new { success = false, message = "unable to perform Accomodation type" };
 
 
             }
             return json;
+
         }
+        [HttpGet]
+        public ActionResult Delete(int ID)
+        {
+            AccomodationTypeActionModels accomodationTypeActionModels = new AccomodationTypeActionModels();
+            var accomodationtype = typesService.GetAllAccomodationTypeById(ID);
+          accomodationTypeActionModels.ID = accomodationtype.ID ;
+            return PartialView("_Delete", accomodationTypeActionModels);
+        }
+        [HttpPost]
+        public JsonResult  Delete(AccomodationTypeActionModels model)
+        {
+            JsonResult json = new JsonResult();
+            var accomodationtype = typesService.GetAllAccomodationTypeById(model.ID);
+        
+              var  result = typesService.DeleteAccomodationType(accomodationtype);
+
+            if (result)
+            {
+                json.Data = new { success = true };
+            }
+            else
+            {
+                json.Data = new { success = false, message = "unable to perform Accomodation type" };
+
+
+            }
+            return json;
+
+        }
+        #endregion
     }
 }

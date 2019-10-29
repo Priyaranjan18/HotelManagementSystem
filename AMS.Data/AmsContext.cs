@@ -21,7 +21,6 @@ namespace AMS.Data
         public DbSet<AccomodationPackage> accomodationPackages { get; set; }
         public DbSet<Booking> bookings { get; set; }
 
-
-
+       // public System.Data.Entity.DbSet<AMS.Areas.DashBoard.Models.ViewModels.AccomodationPackageActionModels> AccomodationPackageActionModels { get; set; }
     }
 }

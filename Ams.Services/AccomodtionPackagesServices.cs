@@ -15,7 +15,7 @@ namespace Ams.Services
 
             return context.accomodationPackages.ToList(); ;
         }
-        public IEnumerable<AccomodationPackage> SearchAccomodationPackages(string searchTerm)
+        public IEnumerable<AccomodationPackage> SearchAccomodationPackages(string searchTerm, int? accomodationTypeID,int page,int recordSize)
         {
 
             var accomodationpackage = context.accomodationPackages.AsQueryable();
@@ -23,7 +23,16 @@ namespace Ams.Services
             {
                 accomodationpackage = accomodationpackage.Where(a => a.Name.ToLower().Contains(searchTerm.ToLower()));
             }
-            return accomodationpackage.ToList();
+            if (accomodationTypeID.HasValue&& accomodationTypeID.Value>0)
+            {
+                accomodationpackage = accomodationpackage.Where(a => a.AccomodationTypeID == accomodationTypeID.Value);
+            }
+            var skip = (page - 1) * recordSize;
+            //(1-1)*3=0
+            //(2-1)*3=3
+            //(3-1)*3=6
+
+            return accomodationpackage.OrderBy(n=>n.AccomodationTypeID).Skip(skip).Take(recordSize).ToList();
         }
         public AccomodationPackage GetAllAccomodationPackageById(int ID)
         {

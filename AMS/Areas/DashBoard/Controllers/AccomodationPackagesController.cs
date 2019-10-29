@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Ams.Services;
 using AMS.Areas.DashBoard.Models.ViewModels;
 using AMS.Entities;
+using AMS.ViewModels;
 
 namespace AMS.Areas.DashBoard.Controllers
 {
@@ -19,11 +20,16 @@ namespace AMS.Areas.DashBoard.Controllers
         public object accomodation { get; private set; }
 
         // GET: DashBoard/AccomodationTypes
-        public ActionResult Index(string searchTerm)
+        public ActionResult Index(string searchTerm,int? accomodationTypeID,int? page)
         {
+            int recordSize = 3;
+            page = page ?? 1;
             AccomodationPackageListingModel model = new AccomodationPackageListingModel();
             model.SearchTerm = searchTerm;
-            model.accomodationPackages = PackagesServices.SearchAccomodationPackages(searchTerm);
+            model.AccomodationTypeID = accomodationTypeID;
+            model.accomodationPackages = PackagesServices.SearchAccomodationPackages(searchTerm, accomodationTypeID,page.Value,recordSize);
+            model.accomodationTypes = typesService.GetAllAccomodationType();
+            model.pagers = new Pager(9,page,recordSize);
             return View(model);
         }
 

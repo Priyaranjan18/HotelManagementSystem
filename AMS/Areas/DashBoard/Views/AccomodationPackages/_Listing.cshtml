@@ -5,8 +5,9 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
+                <th scope="col">Fees Per Night</th>
                 <th scope="col">Accomodation Type</th>
-                
+
                 <th scope="col">action</th>
 
             </tr>
@@ -14,22 +15,22 @@
         <tbody>
             @foreach (var item in Model.accomodationPackages)
             {
-                <tr>
-                    <td>@item.Name</td>
-                   
-                    <td>
-                        @if (item.accomodationType != null)
-                        {
-                            @item.accomodationType.Name
-                        }
-                    </td>
-                    
-                    
-                    <td>
-                        <button data-href="@Url.Action("Action","AccomodationPackages",new { id=item.ID})" type="button" data-toggle="modal" data-target="#ActionModal" class="data-btn btn btn-success"> <i class="fas fa-pencil-alt mr-1"></i>Edit</button>
-                        <button data-href="@Url.Action("Delete","AccomodationPackages",new { id=item.ID})" type="button" data-toggle="modal" data-target="#ActionModal" class=" data-btn btn-danger"><i class="fas fa-trash-alt mr-1"></i>Delete</button>
-                    </td>
-                </tr>
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.FeesperNight</td>
+                <td>
+                    @if (item.accomodationType != null)
+                    {
+                        @item.accomodationType.Name
+                    }
+                </td>
+
+
+                <td>
+                    <button data-href="@Url.Action("Action","AccomodationPackages",new { id=item.ID})" type="button" data-toggle="modal" data-target="#ActionModal" class="data-btn btn btn-success"> <i class="fas fa-pencil-alt mr-1"></i>Edit</button>
+                    <button data-href="@Url.Action("Delete","AccomodationPackages",new { id=item.ID})" type="button" data-toggle="modal" data-target="#ActionModal" class=" data-btn btn-danger"><i class="fas fa-trash-alt mr-1"></i>Delete</button>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

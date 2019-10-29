@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AMS.Entities;
+using AMS.ViewModels;
 
 namespace AMS.Areas.DashBoard.Models.ViewModels
 {
     public class AccomodationPackageListingModel
     {
         public IEnumerable<AccomodationPackage> accomodationPackages { get; set; }
+        public IEnumerable<AccomodationType> accomodationTypes { get; set; }
         public string SearchTerm { get; set; }
+        public int? AccomodationTypeID { get; set; }
+        public Pager pagers { get; set; }
     }
     public class AccomodationPackageActionModels
     {

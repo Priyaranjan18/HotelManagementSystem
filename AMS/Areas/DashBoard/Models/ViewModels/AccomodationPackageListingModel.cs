@@ -23,7 +23,7 @@ namespace AMS.Areas.DashBoard.Models.ViewModels
         public string Name { get; set; }
         public string NoofRooms { get; set; }
         public decimal FeesperNight { get; set; }
-        public IEnumerable<AccomodationType> accomodationTypes { get; set; }
+        public IEnumerable<AccomodationType> AccomodationTypes { get; set; }
 
     }
 }

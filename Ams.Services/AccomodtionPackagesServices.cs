@@ -34,6 +34,23 @@ namespace Ams.Services
 
             return accomodationpackage.OrderBy(n=>n.AccomodationTypeID).Skip(skip).Take(recordSize).ToList();
         }
+
+        public int SearchAccomodationPackagesCount(string searchTerm, int? accomodationTypeID)
+        {
+
+            var accomodationpackage = context.accomodationPackages.AsQueryable();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                accomodationpackage = accomodationpackage.Where(a => a.Name.ToLower().Contains(searchTerm.ToLower()));
+            }
+            if (accomodationTypeID.HasValue && accomodationTypeID.Value > 0)
+            {
+                accomodationpackage = accomodationpackage.Where(a => a.AccomodationTypeID == accomodationTypeID.Value);
+            }
+         
+            return accomodationpackage.Count();
+        }
+
         public AccomodationPackage GetAllAccomodationPackageById(int ID)
         {
 

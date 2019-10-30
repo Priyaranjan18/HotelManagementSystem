@@ -28,9 +28,9 @@
                     <label>Accomodation Type</label>
 
                     <select class="form-control" name="AccomodationTypeID">
-                        @if (Model.accomodationTypes != null)
+                        @if (Model.AccomodationTypes!= null)
                         {
-                            foreach (var accomodationtype in Model.accomodationTypes)
+                            foreach (var accomodationtype in Model.AccomodationTypes)
                             {
                                 <option value="@accomodationtype.ID" @(accomodationtype.ID== Model.AccomodationTypeID ? "selected" :string.Empty)>@accomodationtype.Name</option>
                             }

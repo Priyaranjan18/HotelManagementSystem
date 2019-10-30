@@ -8,6 +8,7 @@ using AMS.Areas.DashBoard.Models.ViewModels;
 using AMS.Entities;
 using AMS.ViewModels;
 
+
 namespace AMS.Areas.DashBoard.Controllers
 {
     public class AccomodationPackagesController : Controller
@@ -17,7 +18,7 @@ namespace AMS.Areas.DashBoard.Controllers
         AccomodtionPackagesServices PackagesServices = new AccomodtionPackagesServices();
         AccomodationTypesService typesService = new AccomodationTypesService();
 
-        public object accomodation { get; private set; }
+       // public object accomodation { get; private set; }
 
         // GET: DashBoard/AccomodationTypes
         public ActionResult Index(string searchTerm,int? accomodationTypeID,int? page)
@@ -27,9 +28,12 @@ namespace AMS.Areas.DashBoard.Controllers
             AccomodationPackageListingModel model = new AccomodationPackageListingModel();
             model.SearchTerm = searchTerm;
             model.AccomodationTypeID = accomodationTypeID;
-            model.accomodationPackages = PackagesServices.SearchAccomodationPackages(searchTerm, accomodationTypeID,page.Value,recordSize);
             model.accomodationTypes = typesService.GetAllAccomodationType();
-            model.pagers = new Pager(9,page,recordSize);
+            model.accomodationPackages = PackagesServices.SearchAccomodationPackages(searchTerm, accomodationTypeID,page.Value,recordSize);
+         
+            var totalRecords = PackagesServices.SearchAccomodationPackagesCount(searchTerm, accomodationTypeID); 
+
+            model.pagers = new Pager(totalRecords,page,recordSize);
             return View(model);
         }
 
@@ -46,7 +50,7 @@ namespace AMS.Areas.DashBoard.Controllers
                 packageActionModels.NoofRooms = accomodationpackage.NoofRooms;
                 packageActionModels.FeesperNight = accomodationpackage.FeesperNight;
             }
-            packageActionModels.accomodationTypes = typesService.GetAllAccomodationType();
+            packageActionModels.AccomodationTypes = typesService.GetAllAccomodationType();
 
             return PartialView("_Action", packageActionModels);
         }

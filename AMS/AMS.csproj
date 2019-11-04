@@ -171,6 +171,7 @@
     <Compile Include="Areas\DashBoard\Controllers\AccomodationPackagesController.cs" />
     <Compile Include="Areas\DashBoard\Controllers\AccomodationTypesController.cs" />
     <Compile Include="Areas\DashBoard\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\DashBoard\Controllers\UsersController.cs" />
     <Compile Include="Areas\DashBoard\DashBoardAreaRegistration.cs" />
     <Compile Include="Areas\DashBoard\Models\ViewModels\AccomodationPackageListingModel.cs" />
     <Compile Include="Areas\DashBoard\Models\ViewModels\AccomodationsViewModels.cs" />
@@ -242,6 +243,10 @@
     <Content Include="Areas\DashBoard\Views\Accomodation\_Action.cshtml" />
     <Content Include="Areas\DashBoard\Views\Accomodation\_Listing.cshtml" />
     <Content Include="Areas\DashBoard\Views\Accomodation\_Delete.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Users\_Action.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Users\_Listing.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Users\Index.cshtml" />
+    <Content Include="Areas\DashBoard\Views\Users\_Delete.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

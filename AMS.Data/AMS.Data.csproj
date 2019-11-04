@@ -51,9 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmsContext.cs" />
-    <Compile Include="Migrations\201910141024442_BasicEntities.cs" />
-    <Compile Include="Migrations\201910141024442_BasicEntities.Designer.cs">
-      <DependentUpon>201910141024442_BasicEntities.cs</DependentUpon>
+    <Compile Include="Migrations\201911030304423_entities.cs" />
+    <Compile Include="Migrations\201911030304423_entities.Designer.cs">
+      <DependentUpon>201911030304423_entities.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +69,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910141024442_BasicEntities.resx">
-      <DependentUpon>201910141024442_BasicEntities.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201911030304423_entities.resx">
+      <DependentUpon>201911030304423_entities.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

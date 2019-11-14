@@ -1,8 +1,8 @@
-﻿﻿@model AMS.Areas.DashBoard.Models.ViewModels.AccomodationsListingModel
+﻿﻿@model AMS.Areas.DashBoard.Models .ViewModels.UsersListingModel
 
 <div class="row">
     <div class="col col-lg-12">
-        <h2>Accomodations</h2>
+        <h2>Users (@Model.Pager.TotalItems)</h2>
         <hr />
     </div>
 </div>
@@ -13,24 +13,24 @@
             <div class="input-group">
                 <input type="text" name="searchterm" class="form-control" placeholder="Search." value="@Model.SearchTerm">
 
-                @if (Model.AccomodationPackages != null && Model.AccomodationPackages.Count() > 0)
+                @if (Model.Roles != null && Model.Roles.Count() > 0)
                 {
-                    <select name="AccomodationPackageID" class="form-control">
+                    <select name="RoleID" class="form-control">
                         <option value="0">
-                            Select Accomodation Package
+                            Select Role
                         </option>
-                        @foreach (var accomodationPackage in Model.AccomodationPackages)
+                        @foreach (var role in Model.Roles)
                         {
-                            <option value="@accomodationPackage.ID" @(accomodationPackage.ID == Model.AccomodationPackageID ? "selected" : string.Empty)>
-                                @accomodationPackage.Name
+                            <option value="@role.Id" @(role.Id == Model.RoleID ? "selected" : string.Empty)>
+                                @role.Name
                             </option>
                         }
                     </select>
                 }
                 <div class="input-group-append">
                     <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search mr-1"></i> Search</button>
-                    <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Accomodation")"><i class="fas fa-redo-alt mr-1"></i> Reset</a>
-                    <button data-href="@Url.Action("Action", "Accomodation")" class="data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#actionModal"><i class="fas fa-plus mr-1"></i> Create</button>
+                    <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Users")"><i class="fas fa-redo-alt mr-1"></i> Reset</a>
+                    <button data-href="@Url.Action("Action", "Users")" class="data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#actionModal"><i class="fas fa-plus mr-1"></i> Create</button>
                 </div>
             </div>
         </form>
